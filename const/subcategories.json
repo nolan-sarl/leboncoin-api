@@ -10532,6 +10532,662 @@
     }
   },
   "3": {
+    "brand": {
+      "values": [
+        {
+          "label": "Yamaha",
+          "value": "Yamaha"
+        },
+        {
+          "label": "Honda",
+          "value": "Honda"
+        },
+        {
+          "label": "Suzuki",
+          "value": "Suzuki"
+        },
+        {
+          "label": "Kawasaki",
+          "value": "Kawasaki"
+        },
+        {
+          "label": "Bmw",
+          "value": "Bmw"
+        },
+        {
+          "label": "2Twenty",
+          "value": "2Twenty"
+        },
+        {
+          "label": "Access Motor",
+          "value": "Access Motor"
+        },
+        {
+          "label": "Acma",
+          "value": "Acma"
+        },
+        {
+          "label": "Adiva",
+          "value": "Adiva"
+        },
+        {
+          "label": "Adly",
+          "value": "Adly"
+        },
+        {
+          "label": "Aeon",
+          "value": "Aeon"
+        },
+        {
+          "label": "Ajp",
+          "value": "Ajp"
+        },
+        {
+          "label": "Aprilia",
+          "value": "Aprilia"
+        },
+        {
+          "label": "Arctic Cat",
+          "value": "Arctic Cat"
+        },
+        {
+          "label": "Askoll",
+          "value": "Askoll"
+        },
+        {
+          "label": "Avinton",
+          "value": "Avinton"
+        },
+        {
+          "label": "Axr",
+          "value": "Axr"
+        },
+        {
+          "label": "Axroads",
+          "value": "Axroads"
+        },
+        {
+          "label": "Barossa",
+          "value": "Barossa"
+        },
+        {
+          "label": "Benelli",
+          "value": "Benelli"
+        },
+        {
+          "label": "Beta",
+          "value": "Beta"
+        },
+        {
+          "label": "Bimota",
+          "value": "Bimota"
+        },
+        {
+          "label": "Blaney",
+          "value": "Blaney"
+        },
+        {
+          "label": "Brixton",
+          "value": "Brixton"
+        },
+        {
+          "label": "Buell",
+          "value": "Buell"
+        },
+        {
+          "label": "Bullit",
+          "value": "Bullit"
+        },
+        {
+          "label": "Bultaco",
+          "value": "Bultaco"
+        },
+        {
+          "label": "Cagiva",
+          "value": "Cagiva"
+        },
+        {
+          "label": "Can_Am",
+          "value": "Can_Am"
+        },
+        {
+          "label": "Carvos",
+          "value": "Carvos"
+        },
+        {
+          "label": "Ccm",
+          "value": "Ccm"
+        },
+        {
+          "label": "Cectek",
+          "value": "Cectek"
+        },
+        {
+          "label": "Cf Moto",
+          "value": "Cf Moto"
+        },
+        {
+          "label": "Cineco",
+          "value": "Cineco"
+        },
+        {
+          "label": "Clipic",
+          "value": "Clipic"
+        },
+        {
+          "label": "Cpi",
+          "value": "Cpi"
+        },
+        {
+          "label": "Cyclone",
+          "value": "Cyclone"
+        },
+        {
+          "label": "Daelim",
+          "value": "Daelim"
+        },
+        {
+          "label": "Derbi",
+          "value": "Derbi"
+        },
+        {
+          "label": "Dinli",
+          "value": "Dinli"
+        },
+        {
+          "label": "Doohan",
+          "value": "Doohan"
+        },
+        {
+          "label": "Ducati",
+          "value": "Ducati"
+        },
+        {
+          "label": "E-Solex",
+          "value": "E-Solex"
+        },
+        {
+          "label": "E-Ton",
+          "value": "E-Ton"
+        },
+        {
+          "label": "Ec City",
+          "value": "Ec City"
+        },
+        {
+          "label": "Electric Motion",
+          "value": "Electric Motion"
+        },
+        {
+          "label": "Evo-Set",
+          "value": "Evo-Set"
+        },
+        {
+          "label": "Evoke",
+          "value": "Evoke"
+        },
+        {
+          "label": "Explorer",
+          "value": "Explorer"
+        },
+        {
+          "label": "Fantic",
+          "value": "Fantic"
+        },
+        {
+          "label": "Fb Mondial",
+          "value": "Fb Mondial"
+        },
+        {
+          "label": "Fun Tech",
+          "value": "Fun Tech"
+        },
+        {
+          "label": "Fym",
+          "value": "Fym"
+        },
+        {
+          "label": "Gas Gas",
+          "value": "Gas Gas"
+        },
+        {
+          "label": "Generic",
+          "value": "Generic"
+        },
+        {
+          "label": "Gilera",
+          "value": "Gilera"
+        },
+        {
+          "label": "Goes",
+          "value": "Goes"
+        },
+        {
+          "label": "Govecs",
+          "value": "Govecs"
+        },
+        {
+          "label": "Gowinn",
+          "value": "Gowinn"
+        },
+        {
+          "label": "Hanway",
+          "value": "Hanway"
+        },
+        {
+          "label": "Harley Davidson",
+          "value": "Harley Davidson"
+        },
+        {
+          "label": "Heroway",
+          "value": "Heroway"
+        },
+        {
+          "label": "Hm",
+          "value": "Hm"
+        },
+        {
+          "label": "Hm Moto",
+          "value": "Hm Moto"
+        },
+        {
+          "label": "Hm-Honda",
+          "value": "Hm-Honda"
+        },
+        {
+          "label": "Hrd",
+          "value": "Hrd"
+        },
+        {
+          "label": "Husaberg",
+          "value": "Husaberg"
+        },
+        {
+          "label": "Husqvarna",
+          "value": "Husqvarna"
+        },
+        {
+          "label": "Hyosung",
+          "value": "Hyosung"
+        },
+        {
+          "label": "Hytrack",
+          "value": "Hytrack"
+        },
+        {
+          "label": "Imf",
+          "value": "Imf"
+        },
+        {
+          "label": "Indian",
+          "value": "Indian"
+        },
+        {
+          "label": "Italjet",
+          "value": "Italjet"
+        },
+        {
+          "label": "Italvel",
+          "value": "Italvel"
+        },
+        {
+          "label": "Jawa-Cz",
+          "value": "Jawa-Cz"
+        },
+        {
+          "label": "Jialing",
+          "value": "Jialing"
+        },
+        {
+          "label": "Jianshe",
+          "value": "Jianshe"
+        },
+        {
+          "label": "Jinsheng",
+          "value": "Jinsheng"
+        },
+        {
+          "label": "Johnny Pag",
+          "value": "Johnny Pag"
+        },
+        {
+          "label": "Jordan",
+          "value": "Jordan"
+        },
+        {
+          "label": "KTM",
+          "value": "KTM"
+        },
+        {
+          "label": "Kazuma",
+          "value": "Kazuma"
+        },
+        {
+          "label": "Keeway",
+          "value": "Keeway"
+        },
+        {
+          "label": "Kinder",
+          "value": "Kinder"
+        },
+        {
+          "label": "Kinroad",
+          "value": "Kinroad"
+        },
+        {
+          "label": "Kl",
+          "value": "Kl"
+        },
+        {
+          "label": "Kreidler",
+          "value": "Kreidler"
+        },
+        {
+          "label": "Ksr Moto",
+          "value": "Ksr Moto"
+        },
+        {
+          "label": "Kvn",
+          "value": "Kvn"
+        },
+        {
+          "label": "Kymco",
+          "value": "Kymco"
+        },
+        {
+          "label": "Laverda",
+          "value": "Laverda"
+        },
+        {
+          "label": "Lem",
+          "value": "Lem"
+        },
+        {
+          "label": "Lifan",
+          "value": "Lifan"
+        },
+        {
+          "label": "Linhai",
+          "value": "Linhai"
+        },
+        {
+          "label": "Lml",
+          "value": "Lml"
+        },
+        {
+          "label": "Loncin",
+          "value": "Loncin"
+        },
+        {
+          "label": "Magpower",
+          "value": "Magpower"
+        },
+        {
+          "label": "Malaguti",
+          "value": "Malaguti"
+        },
+        {
+          "label": "Masai",
+          "value": "Masai"
+        },
+        {
+          "label": "Mash",
+          "value": "Mash"
+        },
+        {
+          "label": "Mbk",
+          "value": "Mbk"
+        },
+        {
+          "label": "Metrakit",
+          "value": "Metrakit"
+        },
+        {
+          "label": "Minico",
+          "value": "Minico"
+        },
+        {
+          "label": "Mistral",
+          "value": "Mistral"
+        },
+        {
+          "label": "Monnier",
+          "value": "Monnier"
+        },
+        {
+          "label": "Montesa",
+          "value": "Montesa"
+        },
+        {
+          "label": "Moto Guzzi",
+          "value": "Moto Guzzi"
+        },
+        {
+          "label": "Moto Morini",
+          "value": "Moto Morini"
+        },
+        {
+          "label": "Msa",
+          "value": "Msa"
+        },
+        {
+          "label": "Muz",
+          "value": "Muz"
+        },
+        {
+          "label": "Mv-Agusta",
+          "value": "Mv-Agusta"
+        },
+        {
+          "label": "Mz",
+          "value": "Mz"
+        },
+        {
+          "label": "Neco",
+          "value": "Neco"
+        },
+        {
+          "label": "Nfm",
+          "value": "Nfm"
+        },
+        {
+          "label": "Niu",
+          "value": "Niu"
+        },
+        {
+          "label": "Norton",
+          "value": "Norton"
+        },
+        {
+          "label": "Orcal",
+          "value": "Orcal"
+        },
+        {
+          "label": "Ossa",
+          "value": "Ossa"
+        },
+        {
+          "label": "Oxo Bike",
+          "value": "Oxo Bike"
+        },
+        {
+          "label": "Peugeot",
+          "value": "Peugeot"
+        },
+        {
+          "label": "Pgo",
+          "value": "Pgo"
+        },
+        {
+          "label": "Piaggio",
+          "value": "Piaggio"
+        },
+        {
+          "label": "Pink Mobility",
+          "value": "Pink Mobility"
+        },
+        {
+          "label": "Polaris",
+          "value": "Polaris"
+        },
+        {
+          "label": "Qingqi",
+          "value": "Qingqi"
+        },
+        {
+          "label": "Quadro",
+          "value": "Quadro"
+        },
+        {
+          "label": "Rede",
+          "value": "Rede"
+        },
+        {
+          "label": "Regal Raptor",
+          "value": "Regal Raptor"
+        },
+        {
+          "label": "Renault",
+          "value": "Renault"
+        },
+        {
+          "label": "Revatto",
+          "value": "Revatto"
+        },
+        {
+          "label": "Rider",
+          "value": "Rider"
+        },
+        {
+          "label": "Rieju",
+          "value": "Rieju"
+        },
+        {
+          "label": "Rival Motors",
+          "value": "Rival Motors"
+        },
+        {
+          "label": "Rj",
+          "value": "Rj"
+        },
+        {
+          "label": "Roxon",
+          "value": "Roxon"
+        },
+        {
+          "label": "Royal Enfield",
+          "value": "Royal Enfield"
+        },
+        {
+          "label": "Sachs",
+          "value": "Sachs"
+        },
+        {
+          "label": "Scorpa",
+          "value": "Scorpa"
+        },
+        {
+          "label": "Sea Doo Bombardier",
+          "value": "Sea Doo Bombardier"
+        },
+        {
+          "label": "Sherco",
+          "value": "Sherco"
+        },
+        {
+          "label": "Silence",
+          "value": "Silence"
+        },
+        {
+          "label": "Skyteam",
+          "value": "Skyteam"
+        },
+        {
+          "label": "Super Socco",
+          "value": "Super Socco"
+        },
+        {
+          "label": "Swm",
+          "value": "Swm"
+        },
+        {
+          "label": "Sym",
+          "value": "Sym"
+        },
+        {
+          "label": "Tendance",
+          "value": "Tendance"
+        },
+        {
+          "label": "Tgb",
+          "value": "Tgb"
+        },
+        {
+          "label": "Tnt Motor",
+          "value": "Tnt Motor"
+        },
+        {
+          "label": "Triton",
+          "value": "Triton"
+        },
+        {
+          "label": "Triumph",
+          "value": "Triumph"
+        },
+        {
+          "label": "Vastro",
+          "value": "Vastro"
+        },
+        {
+          "label": "Vespa",
+          "value": "Vespa"
+        },
+        {
+          "label": "Victory",
+          "value": "Victory"
+        },
+        {
+          "label": "Voxan",
+          "value": "Voxan"
+        },
+        {
+          "label": "Whattz",
+          "value": "Whattz"
+        },
+        {
+          "label": "Yadea",
+          "value": "Yadea"
+        },
+        {
+          "label": "Yazuka",
+          "value": "Yazuka"
+        },
+        {
+          "label": "Ycf",
+          "value": "Ycf"
+        },
+        {
+          "label": "Yiying",
+          "value": "Yiying"
+        },
+        {
+          "label": "Zero Motorcycles",
+          "value": "Zero Motorcycles"
+        },
+        {
+          "label": "Zhongyu",
+          "value": "Zhongyu"
+        },
+        {
+          "label": "Zongchen",
+          "value": "Zongchen"
+        },
+        {
+          "label": "Autres",
+          "value": "Autres"
+        }
+      ]
+    },
     "cubic_capacity": {
       "values": [
         {
