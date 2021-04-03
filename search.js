@@ -89,7 +89,36 @@ class Search {
             } else if (httpResponse && httpResponse.statusCode == 403) {
                 callback({ success: false, error: httpResponse, cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0] })
             } else {
-                callback({ success: true, data: jsonResult.ads, cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0] })
+                var output = [];
+
+                for (var i in jsonResult.ads) {
+                    var entry = jsonResult.ads[i];
+
+                    var attributes = {};
+
+                    if (entry.attributes != null) {
+                        entry.attributes.forEach(attribute => {
+                            attributes[attribute.key] = attribute.value;
+                        })
+                    }
+
+                    output.push({
+                        title: entry.subject,
+                        description: entry.body,
+                        category: entry.category_name,
+                        link: entry.url,
+                        images: entry.images.urls,
+                        location: entry.location,
+                        urgent: entry.urgent ? entry.urgent : false,
+                        price: entry.price ? entry.price[0] : 0,
+                        date: entry.first_publication_date,
+                        date_index: entry.index_date,
+                        owner: entry.owner,
+                        attributes: attributes
+                    })
+                }
+
+                callback({ success: true, data: output, cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0] })
             }
         })
     }
