@@ -103,6 +103,7 @@ class Search {
                     }
 
                     output.push({
+                        id: entry.list_id,
                         title: entry.subject,
                         description: entry.body,
                         category: entry.category_name,
