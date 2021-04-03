@@ -87,7 +87,12 @@ class Search {
             if (err) {
                 callback({ success: false, error: err })
             } else if (httpResponse && httpResponse.statusCode == 403) {
-                callback({ success: false, error: httpResponse, cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0] })
+                callback({
+                    success: false,
+                    error: httpResponse,
+                    code: httpResponse.statusCode,
+                    cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0]
+                })
             } else {
                 var output = [];
 
