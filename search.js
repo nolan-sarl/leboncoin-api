@@ -41,7 +41,7 @@ class Search {
     }
 
     setPage(page) {
-        this.bodyParams.offset = page
+        this.bodyParams.offset = page * this.bodyParams.limit
     }
 
     setLimit(limit) {
