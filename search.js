@@ -41,7 +41,7 @@ class Search {
     }
 
     setPage(page) {
-        this.bodyParams.offset = page * this.bodyParams.limit
+        this.bodyParams.offset = (page - 1) * this.bodyParams.limit
     }
 
     setLimit(limit) {
@@ -93,7 +93,7 @@ class Search {
                     code: httpResponse.statusCode,
                     cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0]
                 })
-            } else {
+            } else if (jsonResult && jsonResult.ads) {
                 var output = [];
 
                 for (var i in jsonResult.ads) {
@@ -125,6 +125,8 @@ class Search {
                 }
 
                 callback({ success: true, data: output, cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0] })
+            } else {
+                callback({ success: false, error: 'no result' })
             }
         })
     }
