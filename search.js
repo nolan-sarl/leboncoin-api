@@ -126,7 +126,7 @@ class Search {
 
                 callback({ success: true, data: output, cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0] })
             } else {
-                callback({ success: false, error: 'no result' })
+                callback({ success: true, data: [] })
             }
         })
     }
