@@ -49,15 +49,15 @@ class Search {
     }
 
     setCategory(category) {
-        this.bodyParams.category = { id: category }
+        this.bodyParams.filters.category = { id: category }
     }
 
     setParam(label, value) {
-        this.bodyParams.enums[label] = value
+        this.bodyParams.filters.enums[label] = value
     }
 
     removeParam(label) {
-        this.bodyParams.enums[label] = undefined
+        this.bodyParams.filters.enums[label] = undefined
     }
 
     getCookieAsync(callback) {
@@ -89,7 +89,7 @@ class Search {
             } else if (httpResponse && httpResponse.statusCode == 403) {
                 callback({ success: false, error: httpResponse, cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0] })
             } else {
-                callback({ success: true, data: jsonResult, cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0] })
+                callback({ success: true, data: jsonResult.ads, cookie: httpResponse.caseless.dict["set-cookie"][0].split("; ")[0] })
             }
         })
     }
