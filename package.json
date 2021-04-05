@@ -12,6 +12,7 @@
         "url": "https://github.com/nolan-sarl/leboncoin-api/issues"
     },
     "dependencies": {
+        "puppeteer": "^8.0.0",
         "request": "^2.88.0"
     },
     "devDependencies": {},

@@ -1,6 +1,6 @@
 const Search = require('./main')
 
-let page = 60
+// let page = 60
 
 const search = new Search()
 
@@ -23,3 +23,5 @@ function startSearch() {
 }
 
 startSearch()
+
+test()
