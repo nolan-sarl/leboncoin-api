@@ -62,37 +62,41 @@ class Search {
     }
 
     async getCookieAsync(callback) {
-        this.browser = await puppeteer.launch({
-            headless: true,
-            executablePath: '/usr/bin/chromium-browser',
-            args: [
-                "--no-sandbox",
-                "--disable-gpu",
-            ]
-        });
-        this.pageBrowser = await this.browser.newPage();
-        await this.pageBrowser.setCacheEnabled(false);
-        await this.pageBrowser.setDefaultNavigationTimeout(0);
-        await this.pageBrowser.setViewport({ width: 1000, height: 500 })
-        await this.pageBrowser.goto("https://www.leboncoin.fr/voitures/offres", { waitUntil: 'load' });
-        await this.pageBrowser.evaluate(() => {
-            const $ = window.$;
-        })
-        const cookies = await this.pageBrowser.cookies()
+        try {
+            this.browser = await puppeteer.launch({
+                headless: true,
+                executablePath: '/usr/bin/chromium-browser',
+                args: [
+                    "--no-sandbox",
+                    "--disable-gpu",
+                ]
+            });
+            this.pageBrowser = await this.browser.newPage();
+            await this.pageBrowser.setCacheEnabled(false);
+            await this.pageBrowser.setDefaultNavigationTimeout(0);
+            await this.pageBrowser.setViewport({ width: 1000, height: 500 })
+            await this.pageBrowser.goto("https://www.leboncoin.fr/voitures/offres", { waitUntil: 'load' });
+            await this.pageBrowser.evaluate(() => {
+                const $ = window.$;
+            })
+            const cookies = await this.pageBrowser.cookies()
 
-        if (cookies) {
-            for (const key in cookies) {
-                if (Object.hasOwnProperty.call(cookies, key)) {
-                    const element = cookies[key];
-                    if (element.name == "datadome") {
-                        callback({ success: true, cookie: element.value })
+            if (cookies) {
+                for (const key in cookies) {
+                    if (Object.hasOwnProperty.call(cookies, key)) {
+                        const element = cookies[key];
+                        if (element.name == "datadome") {
+                            callback({ success: true, cookie: element.value })
+                        }
                     }
                 }
+            } else {
+                callback({ success: false })
             }
-        } else {
-            callback({ success: false })
+            await this.browser.close();
+        } catch (error) {
+            callback({ success: false, error })
         }
-        await this.browser.close();
     }
 
     getHeaders() {
