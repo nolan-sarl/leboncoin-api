@@ -1,10 +1,10 @@
 const Search = require('./main')
 
-// let page = 60
+let page = 1
 
 const search = new Search()
 
-search.setCookie('datadome=HKhGFj44P8xjqaEvMOjDj~GCj_VaHIH6qMB4-a~f3FpTvxlhRTOQRwz4OP3D2BN7_-Lk4t6ybRyHQbxWJu3ThHfDc5DUkBJmfsngB0Pq7A')
+search.setCookie('datadome=9XEZQMe0__9y4vsmZODITzIaYa4gIabB5jcwdBkPxs6j4jgcz9rQbJrcn1-gMQuRFNpJ69MpDzI.sPi2f2YPQRCFv_Z5K6ul-BwUDQh_vv')
 search.setCategory('2')
 search.setParam("brand", "Audi")
 search.setPage(page)
@@ -23,5 +23,3 @@ function startSearch() {
 }
 
 startSearch()
-
-test()
