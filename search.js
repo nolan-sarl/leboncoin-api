@@ -4,23 +4,15 @@ const request = require("request")
 class Search {
     constructor() {
         this.headers = {
-            'Method': "POST",
-            'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
-            'Accept-Language': '*',
-            'Accept': '*/*',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Accept-Language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7',
-            'cache-control': 'no-cache',
-            'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"',
-            'sec-ch-ua-mobile': '?0',
-            'sec-fetch-dest': 'empty',
-            'sec-fetch-mode': 'cors',
-            'sec-fetch-site': 'same-site',
-            'Content-Type': 'application/json',
-            'Referer': "https://www.leboncoin.fr/voitures/offres",
-            'Origin': 'https://www.leboncoin.fr',
-            'Api_key': "ba0c2dad52b3ec",
-            'Cookie': ''
+            'accept': '*/*',
+            'accept-encoding': 'gzip, deflate, br',
+            'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7',
+            'api_key': 'ba0c2dad52b3ec',
+            'content-type': 'application/json',
+            'Cookie': 'datadome=R-5wMNi1vIl3C-h6rZaTsGa.Q958J93_hBYTab1sogn97hpWit_hmk-U6JFIKY4tf9WAseG3O_tG~5p7juRWO0x3WpI0F6uZRM3-n4.wUQ',
+            'origin': 'https://www.leboncoin.fr',
+            'referer': 'https://www.leboncoin.fr/voitures/offres',
+            'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36'
         }
 
         this.bodyParams = {
