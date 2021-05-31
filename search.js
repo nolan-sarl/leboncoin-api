@@ -73,7 +73,7 @@ class Search {
             await this.pageBrowser.setCacheEnabled(false);
             await this.pageBrowser.setDefaultNavigationTimeout(0);
             await this.pageBrowser.setViewport({ width: 1000, height: 500 })
-            await this.pageBrowser.goto("https://www.leboncoin.fr/voitures/offres", { waitUntil: 'load' });
+            await this.pageBrowser.goto("https://api.leboncoin.fr/api/mysearch/v1/searches", { waitUntil: 'load' });
             await this.pageBrowser.evaluate(() => {
                 const $ = window.$;
             })
