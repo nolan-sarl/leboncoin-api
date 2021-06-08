@@ -4,7 +4,7 @@ const request = require("request");
 
 let agent = null;
 if (process.env.PROXY) {
-  agent = new SocksProxyAgent("socks5h://127.0.0.1:9050");
+  agent = new SocksProxyAgent(process.env.PROXY);
 }
 
 class Search {
