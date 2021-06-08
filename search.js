@@ -1,14 +1,9 @@
 const { SocksProxyAgent } = require("socks-proxy-agent");
-const puppeteer = require("puppeteer");
+// const puppeteer = require("puppeteer");
 const request = require("request");
 
-let agent = null;
-if (process.env.PROXY) {
-  agent = new SocksProxyAgent(process.env.PROXY);
-}
-
 class Search {
-  constructor() {
+  constructor(proxy = null) {
     this.headers = {
       accept: "*/*",
       "accept-encoding": "gzip, deflate, br",
@@ -29,6 +24,8 @@ class Search {
       "user-agent":
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36",
     };
+
+    this.agent = new SocksProxyAgent(proxy);
 
     this.bodyParams = {
       limit: 100,
@@ -76,40 +73,41 @@ class Search {
   }
 
   async getCookieAsync(callback) {
-    try {
-      this.browser = await puppeteer.launch({
-        headless: true,
-        executablePath: "/usr/bin/chromium-browser",
-        args: ["--no-sandbox", "--disable-gpu"],
-      });
-      this.pageBrowser = await this.browser.newPage();
-      await this.pageBrowser.setCacheEnabled(false);
-      await this.pageBrowser.setDefaultNavigationTimeout(0);
-      await this.pageBrowser.setViewport({ width: 1000, height: 500 });
-      await this.pageBrowser.goto("https://www.leboncoin.fr/voitures/offres", {
-        waitUntil: "load",
-      });
-      await this.pageBrowser.evaluate(() => {
-        const $ = window.$;
-      });
-      const cookies = await this.pageBrowser.cookies();
+    // try {
+    //   this.browser = await puppeteer.launch({
+    //     headless: true,
+    //     executablePath: "/usr/bin/chromium-browser",
+    //     args: ["--no-sandbox", "--disable-gpu"],
+    //   });
+    //   this.pageBrowser = await this.browser.newPage();
+    //   await this.pageBrowser.setCacheEnabled(false);
+    //   await this.pageBrowser.setDefaultNavigationTimeout(0);
+    //   await this.pageBrowser.setViewport({ width: 1000, height: 500 });
+    //   await this.pageBrowser.goto("https://www.leboncoin.fr/voitures/offres", {
+    //     waitUntil: "load",
+    //   });
+    //   await this.pageBrowser.evaluate(() => {
+    //     const $ = window.$;
+    //   });
+    //   const cookies = await this.pageBrowser.cookies();
 
-      if (cookies) {
-        for (const key in cookies) {
-          if (Object.hasOwnProperty.call(cookies, key)) {
-            const element = cookies[key];
-            if (element.name == "datadome") {
-              callback({ success: true, cookie: element.value });
-            }
-          }
-        }
-      } else {
-        callback({ success: false });
-      }
-      await this.browser.close();
-    } catch (error) {
-      callback({ success: false, error });
-    }
+    //   if (cookies) {
+    //     for (const key in cookies) {
+    //       if (Object.hasOwnProperty.call(cookies, key)) {
+    //         const element = cookies[key];
+    //         if (element.name == "datadome") {
+    //           callback({ success: true, cookie: element.value });
+    //         }
+    //       }
+    //     }
+    //   } else {
+    //     callback({ success: false });
+    //   }
+    //   await this.browser.close();
+    // } catch (error) {
+    //   callback({ success: false, error });
+    // }
+    callback({ success: false });
   }
 
   getHeaders() {
@@ -125,8 +123,8 @@ class Search {
       method: "POST",
     };
 
-    if (agent) {
-      body.agent = agent;
+    if (this.agent) {
+      body.agent = this.agent;
     }
 
     request(body, (err, httpResponse, jsonResult) => {
