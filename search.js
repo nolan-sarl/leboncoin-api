@@ -1,5 +1,11 @@
+const { SocksProxyAgent } = require("socks-proxy-agent");
 const puppeteer = require("puppeteer");
 const request = require("request");
+
+let agent = null;
+if (process.env.PROXY) {
+  agent = new SocksProxyAgent("socks5h://127.0.0.1:9050");
+}
 
 class Search {
   constructor() {
@@ -118,6 +124,10 @@ class Search {
       gzip: true,
       method: "POST",
     };
+
+    if (agent) {
+      body.agent = agent;
+    }
 
     request(body, (err, httpResponse, jsonResult) => {
       if (err) {
