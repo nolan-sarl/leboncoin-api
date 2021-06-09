@@ -30,7 +30,7 @@ class Search {
     }
 
     this.bodyParams = {
-      limit: 35,
+      limit: 100,
       filters: {
         category: { id: "2" },
         enums: { ad_type: ["offer"] },
