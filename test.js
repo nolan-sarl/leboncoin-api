@@ -1,30 +1,37 @@
 const Search = require("./main");
 
+// const search = new Search("socks5h://127.0.0.1:9050");
+const search = new Search();
+
 let page = 1;
 let interval = 5;
 
-const search = new Search();
-
-search.setCookie(`datadome=0j1y~inqS0_-cj8s87eIg6JBZo2hJSJ-qwK3SqH~ThVOggP.c13DzmCF91byxhFflTa-EVqatQE3NnKdSRtZJlr8vV-5_5_IzvOTuvRg3d`);
-search.setCategory('2')
-search.setPage(page)
+search.getCookieAsync((resultCookie) => {
+  if (resultCookie.success) {
+    console.log("START");
+    // search.setCookie(resultCookie.cookie);
+    search.setPage(page);
+    startSearch();
+  } else {
+    console.log("FALSE");
+  }
+});
 
 function startSearch() {
   setTimeout(
     () =>
       search.search((result) => {
-        page++;
-        search.setPage(page);
-        search.setCookie(result.cookie);
-        console.log(result.cookie, result.data.length);
-        if (result.success && result.cookie) {
+        if (result.cookie) {
           search.setCookie(result.cookie);
         }
-        interval = 40;
+        if (result.code == 200) {
+          page++;
+          search.setPage(page);
+          console.log(`NEW PAGE : ${page}`);
+        }
+        console.log(result.cookie, result.code);
         startSearch();
       }),
     interval * 1000
   );
 }
-
-startSearch();
