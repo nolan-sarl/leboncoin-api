@@ -66,26 +66,38 @@ class Search {
             });
           }
 
-          let tmpData = {
+          let attributes = {};
+          element.attributes.map((attribute) => {
+            attributes[attribute.key] = attribute.value;
+          });
+
+          let location = {};
+          element.location.map((value, idx) => {
+            location[idx] = value;
+          });
+
+          let owner = {};
+          element.owner.map((value, idx) => {
+            owner[idx] = value;
+          });
+
+          data.push({
             id: element.list_id,
             date: element.first_publication_date,
-            dateIndex: element.index_date,
+            date_index: element.index_date,
             status: element.status,
-            categoryId: element.category_id,
-            categoryName: element.category_name,
+            category_d: element.category_id,
+            category_name: element.category_name,
             title: element.subject,
             description: element.body,
-            adType: element.ad_type,
+            ad_type: element.ad_type,
             url: element.url,
             price: element.price[0],
             images,
-          };
-
-          element.attributes.map((attribute) => {
-            tmpData[attribute.key] = attribute.value;
+            attributes,
+            location,
+            owner,
           });
-
-          data.push(tmpData);
         });
 
         await this.pageBrowser.close();
