@@ -14,9 +14,9 @@ class Search {
     try {
       if (!this.browser) {
         this.browser = await puppeteer.launch({
-          headless: false,
-          // executablePath: "/usr/bin/chromium-browser",
-          // args: ["--no-sandbox", "--disable-gpu"],
+          headless: true,
+          executablePath: "/usr/bin/chromium-browser",
+          args: ["--no-sandbox", "--disable-gpu"],
         });
       }
 
