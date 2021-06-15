@@ -1,6 +1,6 @@
 {
     "name": "leboncoin-api",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "leboncoin.fr API",
     "main": "./main.js",
     "scripts": {},
@@ -12,10 +12,8 @@
         "url": "https://github.com/nolan-sarl/leboncoin-api/issues"
     },
     "dependencies": {
-        "axios": "^0.21.1",
-        "https": "^1.0.0",
-        "request": "^2.88.0",
-        "socks-proxy-agent": "^5.0.0"
+        "cheerio": "^1.0.0-rc.10",
+        "puppeteer": "^10.0.0"
     },
     "devDependencies": {},
     "keywords": []
