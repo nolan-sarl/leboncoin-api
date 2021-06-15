@@ -67,19 +67,25 @@ class Search {
           }
 
           let attributes = {};
-          element.attributes.map((attribute) => {
-            attributes[attribute.key] = attribute.value;
-          });
+          if (element.attributes) {
+            element.attributes.map((attribute) => {
+              attributes[attribute.key] = attribute.value;
+            });
+          }
 
           let location = {};
-          element.location.map((value, idx) => {
-            location[idx] = value;
-          });
+          if (element.location) {
+            Object.keys(element.location).map((idx) => {
+              location[idx] = element.location[idx];
+            });
+          }
 
           let owner = {};
-          element.owner.map((value, idx) => {
-            owner[idx] = value;
-          });
+          if (element.owner) {
+            Object.keys(element.owner).map((idx) => {
+              owner[idx] = element.owner[idx];
+            });
+          }
 
           data.push({
             id: element.list_id,
