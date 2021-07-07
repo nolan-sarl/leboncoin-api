@@ -6,9 +6,9 @@ const search = new Search();
 function start() {
   search.getDataPage((result) => {
     console.log(result);
-    setTimeout(() => {
-      start();
-    }, 5000);
+    // setTimeout(() => {
+    //   start();
+    // }, 5000);
   });
 }
 

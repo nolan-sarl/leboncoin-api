@@ -58,7 +58,7 @@ class Search {
       if ($("#__NEXT_DATA__").length > 0) {
         const dataJSON = JSON.parse($("#__NEXT_DATA__").html());
 
-        dataJSON.props.pageProps.listingData.ads.map((element) => {
+        dataJSON.props.pageProps.searchData.ads.map((element) => {
           let images = [];
           if (element.images && element.images.urls) {
             element.images.urls.map((image) => {
