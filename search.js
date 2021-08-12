@@ -8,6 +8,7 @@ class Search {
       "user-agent":
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36",
     };
+    this.isCheck = false;
   }
 
   async getDataPage(callback) {
@@ -119,52 +120,59 @@ class Search {
   }
 
   async checkAd(url, callback) {
-    try {
-      if (!this.browser) {
-        this.browser = await puppeteer.launch({
-          headless: true,
-          executablePath: "/usr/bin/chromium-browser",
-          args: ["--no-sandbox", "--disable-gpu"],
-        });
-      }
-
-      this.pageBrowser = await this.browser.newPage();
-      await this.pageBrowser.setUserAgent(this.headers["user-agent"]);
-      await this.pageBrowser.setRequestInterception(true);
-      this.pageBrowser.on("request", (req) => {
-        if (
-          req.resourceType() == "stylesheet" ||
-          req.resourceType() == "font" ||
-          req.resourceType() == "image"
-        ) {
-          req.abort();
-        } else {
-          req.continue();
+    if (!this.isCheck) {
+      this.isCheck = true;
+      try {
+        if (!this.browser) {
+          this.browser = await puppeteer.launch({
+            headless: true,
+            executablePath: "/usr/bin/chromium-browser",
+            args: ["--no-sandbox", "--disable-gpu"],
+          });
         }
-      });
 
-      let code = 200;
+        this.pageBrowser = await this.browser.newPage();
+        await this.pageBrowser.setUserAgent(this.headers["user-agent"]);
+        await this.pageBrowser.setRequestInterception(true);
+        this.pageBrowser.on("request", (req) => {
+          if (
+            req.resourceType() == "stylesheet" ||
+            req.resourceType() == "font" ||
+            req.resourceType() == "image"
+          ) {
+            req.abort();
+          } else {
+            req.continue();
+          }
+        });
 
-      this.pageBrowser.on("response", (response) => {
+        let code = 200;
+
+        await this.pageBrowser.setCacheEnabled(false);
+        await this.pageBrowser.setDefaultNavigationTimeout(0);
+        await this.pageBrowser.setViewport({ width: 1000, height: 500 });
+        const response = await this.pageBrowser.goto(url, {
+          waitUntil: "load",
+        });
+
         if (response.status() === 410) {
           code = 410;
         } else if (response.status() === 403) {
           code = 403;
         }
-      });
 
-      await this.pageBrowser.setCacheEnabled(false);
-      await this.pageBrowser.setDefaultNavigationTimeout(0);
-      await this.pageBrowser.setViewport({ width: 1000, height: 500 });
-      const response = await this.pageBrowser.goto(url, {
-        waitUntil: "load",
-      });
-
-      await this.pageBrowser.close();
-      callback({ success: true, code });
-    } catch (error) {
-      await this.pageBrowser.close();
-      callback({ success: false, error });
+        await this.pageBrowser.close();
+        this.isCheck = false;
+        callback({ success: true, code });
+      } catch (error) {
+        await this.pageBrowser.close();
+        this.isCheck = false;
+        callback({ success: false, error });
+      }
+    } else {
+      setTimeout(() => {
+        this.checkAd(url, callback);
+      }, 500);
     }
   }
 }

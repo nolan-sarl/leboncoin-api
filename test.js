@@ -5,7 +5,7 @@ const search = new Search();
 
 function start() {
   search.checkAd(
-    "https://www.leboncoin.fr/voitures/2000422185.htm",
+    "https://github.com/puppeteer/puppeteer/issues/1981",
     (result) => {
       console.log(result);
       // setTimeout(() => {
@@ -16,3 +16,28 @@ function start() {
 }
 
 start();
+setTimeout(() => {
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+  start();
+}, 2000);
