@@ -4,12 +4,15 @@ const Search = require("./main");
 const search = new Search();
 
 function start() {
-  search.getDataPage((result) => {
-    console.log(result);
-    // setTimeout(() => {
-    //   start();
-    // }, 5000);
-  });
+  search.checkAd(
+    "https://www.leboncoin.fr/voitures/2000422185.htm",
+    (result) => {
+      console.log(result);
+      // setTimeout(() => {
+      //   start();
+      // }, 5000);
+    }
+  );
 }
 
 start();
