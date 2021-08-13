@@ -120,9 +120,9 @@ class Search {
   }
 
   async checkAd(url, callback) {
-    if (!this.isCheck) {
-      this.isCheck = true;
-      try {
+    try {
+      if (!this.isCheck) {
+        this.isCheck = true;
         if (!this.browser) {
           this.browser = await puppeteer.launch({
             headless: true,
@@ -131,10 +131,10 @@ class Search {
           });
         }
 
-        this.pageBrowser = await this.browser.newPage();
-        await this.pageBrowser.setUserAgent(this.headers["user-agent"]);
-        await this.pageBrowser.setRequestInterception(true);
-        this.pageBrowser.on("request", (req) => {
+        this.pageBrowserCheck = await this.browser.newPage();
+        await this.pageBrowserCheck.setUserAgent(this.headers["user-agent"]);
+        await this.pageBrowserCheck.setRequestInterception(true);
+        this.pageBrowserCheck.on("request", (req) => {
           if (
             req.resourceType() == "stylesheet" ||
             req.resourceType() == "font" ||
@@ -148,10 +148,10 @@ class Search {
 
         let code = 200;
 
-        await this.pageBrowser.setCacheEnabled(false);
-        await this.pageBrowser.setDefaultNavigationTimeout(0);
-        await this.pageBrowser.setViewport({ width: 1000, height: 500 });
-        const response = await this.pageBrowser.goto(url, {
+        await this.pageBrowserCheck.setCacheEnabled(false);
+        await this.pageBrowserCheck.setDefaultNavigationTimeout(0);
+        await this.pageBrowserCheck.setViewport({ width: 1000, height: 500 });
+        const response = await this.pageBrowserCheck.goto(url, {
           waitUntil: "load",
         });
 
@@ -161,18 +161,18 @@ class Search {
           code = 403;
         }
 
-        await this.pageBrowser.close();
+        await this.pageBrowserCheck.close();
         this.isCheck = false;
         callback({ success: true, code });
-      } catch (error) {
-        await this.pageBrowser.close();
-        this.isCheck = false;
-        callback({ success: false, error });
+      } else {
+        setTimeout(() => {
+          this.checkAd(url, callback);
+        }, 500);
       }
-    } else {
-      setTimeout(() => {
-        this.checkAd(url, callback);
-      }, 500);
+    } catch (error) {
+      await this.pageBrowserCheck.close();
+      this.isCheck = false;
+      callback({ success: false, error });
     }
   }
 }
