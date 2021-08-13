@@ -167,7 +167,7 @@ class Search {
       } else {
         setTimeout(() => {
           this.checkAd(url, callback);
-        }, 500);
+        }, 250);
       }
     } catch (error) {
       await this.pageBrowserCheck.close();
