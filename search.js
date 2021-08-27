@@ -28,7 +28,10 @@ class Search {
         if (
           req.resourceType() == "stylesheet" ||
           req.resourceType() == "font" ||
-          req.resourceType() == "image"
+          req.resourceType() == "video" ||
+          req.resourceType() == "media" ||
+          req.resourceType() == "image" ||
+          req.resourceType() == "style"
         ) {
           req.abort();
         } else {
@@ -38,6 +41,7 @@ class Search {
       await this.pageBrowser.setCacheEnabled(false);
       await this.pageBrowser.setDefaultNavigationTimeout(0);
       await this.pageBrowser.setViewport({ width: 1000, height: 500 });
+      await this.pageBrowser.setCacheEnabled(true);
       const response = await this.pageBrowser.goto(
         page > 1
           ? `https://www.leboncoin.fr/${this.url}/offres/p-${page}`
@@ -140,7 +144,10 @@ class Search {
           if (
             req.resourceType() == "stylesheet" ||
             req.resourceType() == "font" ||
-            req.resourceType() == "image"
+            req.resourceType() == "video" ||
+            req.resourceType() == "media" ||
+            req.resourceType() == "image" ||
+            req.resourceType() == "style"
           ) {
             req.abort();
           } else {
@@ -153,6 +160,7 @@ class Search {
         await this.pageBrowserCheck.setCacheEnabled(false);
         await this.pageBrowserCheck.setDefaultNavigationTimeout(0);
         await this.pageBrowserCheck.setViewport({ width: 1000, height: 500 });
+        await this.pageBrowser.setCacheEnabled(true);
         const response = await this.pageBrowserCheck.goto(url, {
           waitUntil: "load",
         });
