@@ -15,8 +15,8 @@ class Search {
     try {
       if (!this.browser) {
         this.browser = await puppeteer.launch({
-          headless: true,
-          executablePath: "/usr/bin/chromium-browser",
+          headless: false,
+          // executablePath: "/usr/bin/chromium-browser",
           args: ["--no-sandbox", "--disable-gpu"],
         });
       }
@@ -130,8 +130,8 @@ class Search {
         this.isCheck = true;
         if (!this.browser) {
           this.browser = await puppeteer.launch({
-            headless: true,
-            executablePath: "/usr/bin/chromium-browser",
+            headless: false,
+            // executablePath: "/usr/bin/chromium-browser",
             args: ["--no-sandbox", "--disable-gpu"],
           });
         }
