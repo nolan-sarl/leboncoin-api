@@ -24,6 +24,12 @@ class Search {
       this.pageBrowser = await this.browser.newPage();
       await this.pageBrowser.setUserAgent(this.headers["user-agent"]);
       await this.pageBrowser.setRequestInterception(true);
+
+      this.pageBrowser.on("error", (error) => {
+        console.log(error);
+        callback({ success: false, error: "ERROR" });
+      });
+
       this.pageBrowser.on("request", (req) => {
         if (
           req.resourceType() == "stylesheet" ||
@@ -38,6 +44,7 @@ class Search {
           req.continue();
         }
       });
+      
       await this.pageBrowser.setCacheEnabled(true);
       await this.pageBrowser.setDefaultNavigationTimeout(0);
       await this.pageBrowser.setViewport({ width: 1000, height: 500 });
