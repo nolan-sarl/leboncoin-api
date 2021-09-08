@@ -11,6 +11,14 @@ class Search {
     this.isCheck = false;
   }
 
+  closeBrowser() {
+    try {
+      this.browser.close();
+    } catch (error) {
+      console.log("errorClose");
+    }
+  }
+
   async getDataPage(page, callback) {
     try {
       if (!this.browser) {
@@ -24,11 +32,6 @@ class Search {
       this.pageBrowser = await this.browser.newPage();
       await this.pageBrowser.setUserAgent(this.headers["user-agent"]);
       await this.pageBrowser.setRequestInterception(true);
-
-      this.pageBrowser.on("error", (error) => {
-        console.log(error);
-        callback({ success: false, error: "ERROR" });
-      });
 
       this.pageBrowser.on("request", (req) => {
         if (
@@ -44,7 +47,7 @@ class Search {
           req.continue();
         }
       });
-      
+
       await this.pageBrowser.setCacheEnabled(true);
       await this.pageBrowser.setDefaultNavigationTimeout(0);
       await this.pageBrowser.setViewport({ width: 1000, height: 500 });
