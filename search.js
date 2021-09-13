@@ -188,9 +188,12 @@ class Search {
         }, 250);
       }
     } catch (error) {
-      await this.pageBrowserCheck.close();
-      this.isCheck = false;
-      callback({ success: false, error });
+      try {
+        await this.pageBrowserCheck.close();
+        callback({ success: false, error });
+      } catch (error) {
+        callback({ success: false, error });
+      }
     }
   }
 }
