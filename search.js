@@ -166,7 +166,7 @@ class Search {
 
         let code = 200;
 
-        await this.pageBrowserCheck.setCacheEnabled(true);
+        // await this.pageBrowserCheck.setCacheEnabled(true);
         await this.pageBrowserCheck.setDefaultNavigationTimeout(0);
         await this.pageBrowserCheck.setViewport({ width: 1000, height: 500 });
         const response = await this.pageBrowserCheck.goto(url, {
