@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 const cheerio = require("cheerio");
 
 class Search {
-  constructor(url = null) {
+  constructor(url = null, special = null) {
     this.headers = {
       "user-agent":
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36",
@@ -16,6 +16,16 @@ class Search {
       this.browser.close();
     } catch (error) {
       console.log("errorClose");
+    }
+  }
+
+  getUrl(page) {
+    if (this.special) {
+      return `https://www.leboncoin.fr/recherche?${this.url}&page=${page}`;
+    } else if (page > 1) {
+      return `https://www.leboncoin.fr/${this.url}/offres/p-${page}`;
+    } else {
+      return `https://www.leboncoin.fr/${this.url}/offres`;
     }
   }
 
@@ -51,14 +61,9 @@ class Search {
       await this.pageBrowser.setCacheEnabled(true);
       await this.pageBrowser.setDefaultNavigationTimeout(0);
       await this.pageBrowser.setViewport({ width: 1000, height: 500 });
-      const response = await this.pageBrowser.goto(
-        page > 1
-          ? `https://www.leboncoin.fr/${this.url}/offres/p-${page}`
-          : `https://www.leboncoin.fr/${this.url}/offres`,
-        {
-          waitUntil: "load",
-        }
-      );
+      const response = await this.pageBrowser.goto(this.getUrl(page), {
+        waitUntil: "load",
+      });
 
       const bodyHTML = await this.pageBrowser.evaluate(
         () => document.body.innerHTML
